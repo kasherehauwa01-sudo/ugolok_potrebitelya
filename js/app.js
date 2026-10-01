@@ -31,7 +31,25 @@
 
   function renderDocuments() {
     const list = $("#document-list");
-    config.documents.forEach(doc => { const card = create("article", "document-card"); card.append(create("span", "doc-symbol", doc.type === "image" ? "▧" : "▤"), create("h3", "", doc.title), create("p", "", doc.available ? (doc.pages ? `${doc.pages} страницы · PDF` : "Оригинал документа") : "Файл ожидает публикации")); const button = create("button", "button", doc.available ? "Открыть документ" : "Пока недоступен"); button.type = "button"; button.disabled = !doc.available; button.addEventListener("click", () => openDocument(doc)); card.append(button); list.append(card); });
+    config.documents.forEach(doc => {
+      const card = create("article", "document-card");
+      const preview = create("button", "document-preview");
+      preview.type = "button";
+      preview.setAttribute("aria-label", `Открыть: ${doc.title}`);
+      const image = new Image();
+      image.src = doc.thumbnail;
+      image.alt = doc.type === "pdf" ? "Первая страница ЕГРИП" : "Миниатюра свидетельства ИНН";
+      image.loading = "lazy";
+      image.decoding = "async";
+      preview.append(image);
+      preview.addEventListener("click", () => openDocument(doc));
+      card.append(preview, create("h3", "", doc.title), create("p", "", doc.pages ? `${doc.pages} страницы · PDF` : "Оригинал документа"));
+      const button = create("button", "button", "Открыть документ");
+      button.type = "button";
+      button.addEventListener("click", () => openDocument(doc));
+      card.append(button);
+      list.append(card);
+    });
   }
 
   function renderPhones() {
