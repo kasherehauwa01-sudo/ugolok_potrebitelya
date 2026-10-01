@@ -24,8 +24,8 @@ window.SITE_CONFIG = {
   },
   schedule: { days: "Понедельник — воскресенье", open: "09:00", close: "20:00", note: "Без перерывов и выходных", timeZone: "Europe/Volgograd" },
   documents: [
-    { id: "inn", title: "Свидетельство о постановке на налоговый учёт (ИНН)", type: "image", path: "assets/documents/ИНН Куприянова.jpg", available: false },
-    { id: "egrip", title: "Лист записи ЕГРИП", type: "pdf", path: "assets/documents/ЕГРИП.pdf", pages: 3, available: false },
+    { id: "inn", title: "Свидетельство о постановке на налоговый учёт (ИНН)", type: "image", path: "assets/documents/ИНН Куприянова.jpg", available: true },
+    { id: "egrip", title: "Лист записи ЕГРИП", type: "pdf", path: "assets/documents/ЕГРИП.pdf", pages: 3, available: true },
     { id: "notice", title: "Уведомление о постановке на налоговый учёт", type: "file", path: "assets/documents/Уведомление.pdf", available: false }
   ],
   emergencyPhones: [
