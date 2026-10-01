@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#145c3b">
+  <meta name="description" content="Электронный уголок потребителя сети магазинов «ВолгоРост»: сведения о продавце, режим работы, документы и полезные телефоны.">
+  <meta property="og:title" content="Уголок потребителя — ВолгоРост">
+  <meta property="og:description" content="Документы, реквизиты и полезные телефоны в одном месте.">
+  <meta property="og:type" content="website">
+  <title>Уголок потребителя — ВолгоРост</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <header class="hero" id="top">
+    <nav class="topbar wrap" aria-label="Основная навигация">
+      <a class="brand" href="#top" aria-label="ВолгоРост — в начало"><span class="brand-mark">ВР</span><span>ВолгоРост</span></a>
+      <button class="text-size" id="text-size" type="button" aria-pressed="false" aria-label="Увеличить размер текста"><span aria-hidden="true">Аа</span> Текст</button>
+    </nav>
+    <div class="hero-content wrap">
+      <p class="eyebrow">Всё важное рядом</p>
+      <h1>Уголок<br><span>потребителя</span></h1>
+      <p class="intro">Официальная информация о продавце, документы и нужные номера — быстро и понятно.</p>
+      <div class="quick-grid" aria-label="Разделы сайта">
+        <a href="#seller"><span class="quick-icon" aria-hidden="true">ИП</span><strong>Информация о продавце</strong><span>Реквизиты и контакты</span></a>
+        <a href="#schedule"><span class="quick-icon" aria-hidden="true">09</span><strong>Режим работы</strong><span>Когда мы открыты</span></a>
+        <a href="#documents"><span class="quick-icon" aria-hidden="true">▤</span><strong>Документы</strong><span>Просмотр и скачивание</span></a>
+        <a href="#phones"><span class="quick-icon" aria-hidden="true">☎</span><strong>Полезные телефоны</strong><span>Позвонить одним касанием</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section wrap" id="seller">
+      <div class="section-heading"><p class="eyebrow">О компании</p><h2>Информация о продавце</h2></div>
+      <div id="seller-content" class="details-grid"></div>
+      <details class="more-card"><summary>Дополнительные сведения <span aria-hidden="true">＋</span></summary><div id="bank-content" class="bank-grid"></div></details>
+    </section>
+
+    <section class="section tinted" id="schedule"><div class="wrap">
+      <div class="section-heading"><p class="eyebrow">Каждый день</p><h2>Режим работы</h2></div>
+      <div class="schedule-card">
+        <div><p id="schedule-days" class="muted"></p><p class="hours"><span id="open-time"></span><span aria-hidden="true">—</span><span id="close-time"></span></p><p id="schedule-note"></p></div>
+        <div id="open-status" class="status" role="status"><span></span><strong>Уточняем статус…</strong><small>Время Волгограда</small></div>
+      </div>
+    </div></section>
+
+    <section class="section wrap" id="documents">
+      <div class="section-heading"><p class="eyebrow">Оригиналы</p><h2>Документы</h2><p>Откройте документ для просмотра или скачивания.</p></div>
+      <div class="document-grid" id="document-list"></div>
+      <p class="document-note">Документы публикуются в исходном виде. Для PDF предусмотрено открытие в новой вкладке, если встроенный просмотр недоступен.</p>
+    </section>
+
+    <section class="section tinted" id="phones"><div class="wrap">
+      <div class="section-heading"><p class="eyebrow">Номера для связи</p><h2>Полезные телефоны</h2></div>
+      <h3>Экстренные службы</h3><div class="phone-grid emergency" id="emergency-list"></div>
+      <h3 class="subheading">Контролирующие органы</h3><div class="phone-grid" id="authority-list"></div>
+      <p class="source-note">Названия и номера перенесены из исходных материалов как предоставленные сведения. Перед обращением при необходимости уточните актуальность.</p>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap"><div class="brand"><span class="brand-mark">ВР</span><span>ВолгоРост</span></div><p>Уголок потребителя</p><a href="#top">Вернуться наверх ↑</a></div></footer>
+  <nav class="bottom-nav" aria-label="Навигация по разделам"><a href="#seller"><span aria-hidden="true">ИП</span>Продавец</a><a href="#schedule"><span aria-hidden="true">◷</span>Часы</a><a href="#documents"><span aria-hidden="true">▤</span>Документы</a><a href="#phones"><span aria-hidden="true">☎</span>Телефоны</a></nav>
+  <div class="modal" id="document-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-bar"><h2 id="modal-title">Документ</h2><div><a id="modal-download" class="button secondary" href="#" download>Скачать</a><a id="modal-new" class="button secondary" href="#" target="_blank" rel="noopener">В новой вкладке</a><button id="modal-close" class="close" type="button" aria-label="Закрыть документ">×</button></div></div>
+    <div id="modal-view" class="modal-view"></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
