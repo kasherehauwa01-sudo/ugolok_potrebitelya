@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
     inn: "344309962847",
     registrationDate: "13.12.2023",
     okved: "46.44",
-    phone: "54-98-10",
+    phone: "+78442549810",
     phoneLink: "+78442549810",
     email: "VR-SKLAD-OLGA@MAIL.RU",
     bank: {

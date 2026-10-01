@@ -64,6 +64,5 @@
   function showToast(message) { const toast = $("#toast"); toast.textContent = message; toast.classList.add("show"); clearTimeout(showToast.timer); showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200); }
   document.addEventListener("click", async event => { const button = event.target.closest("[data-copy]"); if (!button) return; try { await navigator.clipboard.writeText(button.dataset.copy); showToast("Скопировано"); } catch { const area = create("textarea"); area.value = button.dataset.copy; document.body.append(area); area.select(); document.execCommand("copy"); area.remove(); showToast("Скопировано"); } });
   closeButton.addEventListener("click", closeModal); document.addEventListener("keydown", event => { if (event.key === "Escape" && !modal.hidden) closeModal(); });
-  $("#text-size").addEventListener("click", event => { const active = document.body.classList.toggle("large-text"); event.currentTarget.setAttribute("aria-pressed", String(active)); event.currentTarget.setAttribute("aria-label", active ? "Вернуть обычный размер текста" : "Увеличить размер текста"); });
   renderSeller(); renderSchedule(); renderDocuments(); renderPhones();
 })();
